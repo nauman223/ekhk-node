@@ -1,0 +1,5 @@
+node_modules
+.vscode
+.idea
+development.env
+test.env
