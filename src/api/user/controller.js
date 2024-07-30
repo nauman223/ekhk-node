@@ -20,7 +20,7 @@ const login = async (req, res, next) => {
         let tokens = jwtTokens(users[0]);//Gets access and refresh tokens
         console.log('tokens', tokens)
         // res.cookie('refresh_token', tokens.refreshToken, { ...(process.env.COOKIE_DOMAIN && { domain: process.env.COOKIE_DOMAIN }), httpOnly: true, sameSite: 'none', secure: true });
-        res.json(tokens);
+        res.json({ tokens: tokens, user: users[0]});
     } catch (error) {
         res.status(401).json({ error: error.message });
     }

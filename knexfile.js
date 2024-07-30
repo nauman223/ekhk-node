@@ -12,7 +12,7 @@ module.exports = {
     user: "postgres",//process.env.POSTGRES_USER,
     port: 5432,
     password: "123",//process.env.POSTGRES_PASSWORD,
-    database: "auth"//process.env.POSTGRES_DB,
+    database: "easyKhata"//process.env.POSTGRES_DB,
   },
   migrations: {
     directory: './migrations',
