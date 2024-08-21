@@ -11,7 +11,7 @@ const getCustomer = async (req, res, next) => {
     } catch (err) {
 
         return res.status(404).json({
-            status: 404
+            status: err
         });
     }
 };
@@ -43,9 +43,9 @@ const getSingleCustomer = async (req, res, next) => {
     }
 };
 
-const updateCustomer = async (req, res, next) => {
+const updateCustomerBalance = async (req, res, next) => {
     try {
-        const data = await queries.updateCustomer(req.body);
+        const data = await queries.updateCustomerBalance(req.body);
         console.log('data', data)
         if (data.length > 0) {
             return res.status(200).json({ status: 200, id: data[0].id });
@@ -98,7 +98,7 @@ module.exports = {
     getCustomer,
     addCustomer,
     getSingleCustomer,
-    updateCustomer,
+    updateCustomerBalance,
     deleteCustomer,
     searchCustomer,
 };

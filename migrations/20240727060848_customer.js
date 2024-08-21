@@ -9,6 +9,8 @@ exports.up = function (knex) {
         table.string('phone', 255);
         table.string('description', 255);
         table.string('gender', 255);
+        table.string('balance', 255);
+        table.string('get_or_gave', 255);
         table.string('image', 255).defaultTo("https://via.placeholder.com/350x350?text=Image+Not+Uploaded");
         table.boolean('is_customer').defaultTo(true);
         table.boolean('is_deleted').defaultTo(false);

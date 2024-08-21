@@ -21,20 +21,15 @@ const searchCustomer = (search) => {
         .where({ is_deleted: false })
 };
 
-const updateCustomer = (user) => {
+const updateCustomerBalance = (user) => {
     if (user.is_deleted === true) {
         return null
     }
     const data = knex('customer')
         .where({ id: user.id })
         .update({
-            "name": user.name,
-            "phone": user.phone,
-            "description": user.description,
-            "gender": user.gender,
-            "image": user.image,
-            "is_customer": user.is_customer,
-            "is_deleted": false
+            "balance": user.balance,
+            "get_or_gave": user.get_or_gave,
         }).returning('id').then(function (res) {
             return res;
         });
@@ -53,8 +48,7 @@ const deleteCustomer = (id) => {
 };
 const addCustomer = (user) => {
     const data = knex('customer')
-        .insert(user).returning('image').then(function (res) {
-            console.log('res :>> ', res);
+        .insert(user).returning('id').then(function (res) {
             return res;
         },error= (error)=>{
             console.error(error)
@@ -68,7 +62,7 @@ module.exports = {
     getCustomer,
     addCustomer,
     getSingleCustomer,
-    updateCustomer,
+    updateCustomerBalance,
     deleteCustomer,
     searchCustomer
 };
